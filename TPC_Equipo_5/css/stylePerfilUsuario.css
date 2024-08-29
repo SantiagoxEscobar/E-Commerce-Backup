@@ -1,0 +1,22 @@
+﻿#containerPrincipal {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.btn-link {
+    color: black;
+}
+
+    .btn-link:hover {
+        background-color: #9d3131;
+        color: white;
+    }
+
+.nav-pills .btn-link.active, .nav-pills .show > .btn-link {
+    color: white;
+    background-color: #D32F2F;
+}
+
+#lblNumeroPedido {
+    color: white;
+}

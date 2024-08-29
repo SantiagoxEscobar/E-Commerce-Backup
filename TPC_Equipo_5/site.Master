@@ -1,0 +1,127 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="TPC_Equipo_5.site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>OverCloaked Tienda Virtual </title>
+    <link rel="icon" href="https://i.imgur.com/9E31weS.png" type="image/png" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="css/stylePaginaWeb.css" rel="stylesheet" />
+        <link href="css/EstilosBannerCarousel.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <script src="js/bootstrap.min.js"></script>
+    <form id="form1" runat="server">
+        <header id="header">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-image: linear-gradient(to right, #D32F2F 0%, #b82727 100%); padding-inline: 10%">
+                <div class="container-fluid">
+                    <a class="nav-link active  d-inline-flex p-2" aria-current="page" href="default.aspx">
+                        <img style="height: 50px" src="https://i.imgur.com/9ffo48f.png" alt="OverCloaked">
+                    </a>
+                    <div class="d-inline-flex p-2 w-50 justify-content-center" style="max-width: 500px; align-items: center" id="navbarSupportedContent">
+                        <asp:TextBox ID="txtBusqueda" runat="server" CssClass="form-control me-2" placeholder="Buscar articulos"></asp:TextBox>
+                        <asp:ImageButton ID="imgBusqueda" runat="server" ImageUrl="https://i.imgur.com/nsJrYF4.png" Width="24px" Height="24px" OnClick="imgBusqueda_Click" />
+                    </div>
+                    <div>
+                        <ul class="navbar-nav me-auto ml-3 mb-2 mb-lg-0" style="color: white; width: 20%;">
+                            <%if (BotonAdmin)
+                                { %>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="defaultAdmin.aspx">Administrar</a>
+                            </li>
+                            <%} %>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="Productos.aspx">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#footer">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="VentanaCarrito.aspx">
+                                    <img style="width: 24px; height: 24px" src="https://i.imgur.com/n26R5aw.png" alt="carrito">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <asp:Label ID="Contador" runat="server" Text=""></asp:Label>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="Ventana_Usuario.aspx" style="padding-top: 0px;">
+                                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="m-1 pt-1"><img style="width: 24px; height: 24px; text-align:center" src="https://i.imgur.com/RR9DK3V.png" alt="Usuario"></asp:HyperLink>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page">
+                                    <asp:Label ID="lblUsuario" runat="server" Text="" href="Ventana_Usuario.aspx"></asp:Label>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer id="footer" style="background-image: linear-gradient(to right, #D32F2F 0%, #b82727 100%); padding-inline: 10%; margin-top: auto; position: relative; bottom: 0;">
+            <div>
+                <div class="row pt-5 pb-5 text-white text-center">
+                    <div class="col-md-4">
+                        <h5>Navegacion</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" style="color: white" href="#header">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" style="color: white" href="Productos.aspx">Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" style="color: white" href="Ventana_Usuario.aspx">Usuario</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacto</h5>
+                        <ul class="nav flex-column" style="padding-block: 10px">
+                            <li>
+                                <p>0800-1234-5687</p>
+                            </li>
+                            <li>
+                                <p>ovcloaked@mail.com</p>
+                            </li>
+                            <li>
+                                <p>Calle Falsa 123</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="nav flex-column">
+                            <li style="margin-inline: 10px">
+                                <h5 style="margin-bottom: 15px">Redes sociales</h5>
+                                <img style="height: 32px" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp" />
+                                <img style="height: 32px" src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="Linkedin" />
+                                <img style="height: 32px" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+                                <img style="height: 32px" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+                            </li>
+                            <li style="margin-block: 15px; margin-inline: 10px">
+                                <h5>Medios de Pago</h5>
+                                <img style="height: 32px" src="https://www.ryrcomputacion.com/images/tarjetas.png?v=109" alt="Medios de pago" />
+                                <img style="height: 32px" src="https://www.ryrcomputacion.com/images/mp.png?v=109" alt="Mercado Pago" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pb-4 text-white text-center text-opacity-75">
+                    <p>@ 2024 OverCloaked - Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </form>
+        
+</body>
+</html>

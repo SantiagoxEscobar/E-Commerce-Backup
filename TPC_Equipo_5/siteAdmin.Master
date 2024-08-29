@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="siteAdmin.master.cs" Inherits="TPC_Equipo_5.siteAdmin" %>
+
+<!doctype html>
+
+    <html>
+    <head runat="server">
+        <title>OverCloaked Admin</title>
+        <link rel="icon" href="https://i.imgur.com/9E31weS.png" type="image/png" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+            <link href="css/stylePaginaWeb.css" rel="stylesheet" />
+        </asp:ContentPlaceHolder>
+    </head>
+    <body style="background-color: black">
+        <script src="js/bootstrap.min.js"></script>
+        <form id="form1" runat="server">
+
+            <div class="modal fade" id="modalCerrarSesion" tabindex="-1" aria-labelledby="darkModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-dark">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-white fs-5">Volver a E-Commerce</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body text-white">
+                            ¿Está seguro de que desea volver a la vista de Cliente?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <asp:Button ID="btnCerrarSesion" runat="server" Text="Volver a Lado Cliente" CssClass="btn btn-danger" OnClick="btnCerrarSesion_Click"></asp:Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <header id="header">
+                <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1b1f23; padding-inline: 10%">
+                    <div class="container-fluid">
+                        <a class="nav-link active  d-inline-flex p-2" aria-current="page" href="defaultAdmin.aspx">
+                            <img style="height: 50px" src="https://i.imgur.com/9ffo48f.png" alt="OverCloaked">
+                        </a>
+                        <div>
+                            <ul class="navbar-nav me-auto ml-3 mb-2 mb-lg-0" style="color: white;">
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="defaultAdmin.aspx">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="pedidosAdmin.aspx">Pedidos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="usuariosAdmin.aspx">Usuarios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="productosAdmin.aspx">Productos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="categoriasAdmin.aspx">Categorías</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="marcasAdmin.aspx">Marcas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " aria-current="page" href="publicidadAdmin.aspx">Publicidad</a>
+                                </li>
+                                <li class="nav-item">
+                                    <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">
+                                        Volver a lado cliente
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <footer id="footer" style="background-color: #1b1f23; padding-inline: 10%; margin-top: auto; position: relative; bottom: 0;">
+                <div>
+                    <div class="row pt-5 pb-4 text-white text-center text-opacity-75">
+                        <p>© 2024 OverCloaked - Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </footer>
+        </form>
+    </body>
+    </html>
